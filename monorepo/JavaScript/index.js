@@ -1,6 +1,6 @@
 //To have one button "Shuffle Values" - when clicked, it should simply swap the order of the checkbox inputs that appear on the view
 document.addEventListener("DOMContentLoaded", function () {
-  const button = document.getElementById("shuffltValues");
+  const button = document.getElementById("shuffleValues");
   button.addEventListener("click", switchLabels);
 
   function switchLabels() {
@@ -26,36 +26,37 @@ document.addEventListener("DOMContentLoaded", function () {
 //To have one button "Change Values" - when clicked, it should simply change the values of the checkbox inputs that appear on the view into something of your choice
 document.addEventListener("DOMContentLoaded", function () {
   const changeValuesButton = document.getElementById("changeValuesButton");
+  const checkboxes = document.querySelectorAll(".checkbox-container input[type='checkbox']");
+
+  const originalValues = Array.from(checkboxes).map(checkbox => checkbox.value);
+
+  let isChanging = true;
 
   changeValuesButton.addEventListener("click", function () {
-    const checkboxes = document.querySelectorAll(".checkbox-container input[type='checkbox']");
+    const newValues = ["Intern", "Laptop", "Senior", "CEO"];
 
-    checkboxes.forEach(function (checkbox) {
-      if (checkbox.checked) {
-        const label = document.querySelector('label[for="' + checkbox.id + '"]');
-        label.textContent = "Albion";
+    checkboxes.forEach(function (checkbox, index) {
+      if (isChanging) {
+        checkbox.value = newValues[index % newValues.length];
+      } else {
+        checkbox.value = originalValues[index];
       }
+
+      const label = document.querySelector('label[for="' + checkbox.id + '"]');
+      label.textContent = checkbox.value;
     });
+
+    isChanging = !isChanging;
   });
 });
 
 
+
+
+
+
 //To have one button "Show selected values" - when clicked, it should display on the screen the selected checkboxes.
 document.addEventListener("DOMContentLoaded", function () {
-  const changeValuesButton = document.getElementById("changeValuesButton");
-
-  changeValuesButton.addEventListener("click", function () {
-    const checkboxes = document.querySelectorAll(".checkbox-container input[type='checkbox']");
-
-    checkboxes.forEach(function (checkbox) {
-      if (checkbox.checked) {
-        const label = document.querySelector('label[for="' + checkbox.id + '"]');
-        label.textContent = "Albion";
-        checkbox.value = "Albion";
-      }
-    });
-  });
-
   const showSelectedValueButton = document.getElementById("showSelectedValue");
 
   showSelectedValueButton.addEventListener("click", function () {

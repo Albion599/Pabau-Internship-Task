@@ -3,10 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Checkbox Manipulation</title>
+    <title>JavaScipt</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .checkbox-container {
+        text-align: left;
+        padding: 10px;
+      }
+
+      input[type="checkbox"] {
+        margin-right: 5px;
+      }
+
+      button {
+        padding: 10px 20px;
+        margin: 5px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
   </head>
   <body>
-    <h1>Checkbox Manipulation</h1>
+    <h1> JavaScipt Dom Elements Manipulation</h1>
     <form class="checkbox-container">
       <input type="checkbox" id="checkbox1" value="Internship" />
       <label for="checkbox1">Internship</label><br />
@@ -17,7 +50,7 @@
       <input type="checkbox" id="checkbox4" value="Career" />
       <label for="checkbox4">Career</label><br />
     </form>
-    <button id="shuffltValues">Shuffle Values</button>
+    <button id="shuffleValues">Shuffle Values</button>
     <button id="changeValuesButton">Change Values</button>
     <button id="showSelectedValue">Show selected value</button>
 
